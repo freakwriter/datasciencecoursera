@@ -48,4 +48,8 @@ combinedMerged <- combinedMerged[, -1]
 party<-aggregate(combinedMerged[, 3:81], by=list(Activity=combinedMerged$activityLabel, Subject = combinedMerged$subjectID), mean)
 
 # Now write that out to a tidyData.csv file in working directory!
+<<<<<<< HEAD
 write.table(party, file="tidyData.txt", row.name=FALSE, col.name=TRUE)
+=======
+write.table(party, file="tidyData.txt", row.name=FALSE, col.name=TRUE)
+>>>>>>> 55954bca01e1e77425ead5d7d3e44f62d73e2037
