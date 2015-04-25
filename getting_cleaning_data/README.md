@@ -24,6 +24,8 @@ Step 5 was to produce a summary data set as a .txt file that would display the m
 
 For full testing of the assignment, once you've run the run_analysis.R script, you can read the tidyData.txt back into R using a command like this:
 
-read.table("tidyData.txt", header = TRUE)
+read.table("tidyData.txt", header = TRUE, check.names=FALSE)
 
-e.g. yippy <- read.table("tidyData.txt", header = TRUE)
+e.g. yippy <- read.table("tidyData.txt", header = TRUE, check.names=FALSE)
+
+The header=TRUE will tell R to use the first row as a header row, and check.names=FALSE preserves the funky formatting from the original data set in the measurement column headers (which contain () and other characters that the default of check.names=TRUE will change to ".").
