@@ -5,6 +5,18 @@ run_analysis.R was created for the course project for Getting & Cleaning Data. I
 
 In the higher directory, there was a list of features indicating what each of the measurements were, as well as a list relating the activity code types to the name of hte activity.
 
+## How to Run the Script
+1. Set your working directory to be the "UCI HAR Dataset" directory created from unzipping the data file. The path for this should look something like: getdata-projectfiles-UCI HAR Dataset\UCI HAR Dataset
+2. Run the script.
+3. The script should produce a tidyData.txt in UCI HAR Dataset.
+4. To verify the script performed its full functions, read the tidyData.txt back into R using a command like this:
+
+read.table("tidyData.txt", header = TRUE, check.names=FALSE)
+
+e.g. yippy <- read.table("tidyData.txt", header = TRUE, check.names=FALSE)
+
+The header=TRUE will tell R to use the first row as a header row, and check.names=FALSE preserves the funky formatting from the original data set in the measurement column headers (which contain () and other characters that the default of check.names=TRUE will change to ".").
+
 ## Script Actions
 Initially, the script reads all of the separate .txt files into R. The test data sets are read into a series of "a" variables; the train data sets are read into a series of "b" variables. The variables for the two data sets are kept consistent, aside from the single letter variation, to keep the code more readable.
 
@@ -21,11 +33,3 @@ The assignment was to include only those columns relating to standard deviation 
 Now that the number of columns is more workable, the script merges this dataset with the activity labels file to add activity names to the data frame. Once this is done, the activityID column is deleted for ease of readability. This effectively completes Step 3 of the project.
 
 Step 5 was to produce a summary data set as a .txt file that would display the mean for each std and mean column grouped by subject and activity. The script uses an aggregate function to create the appropriate data set, and then uses a write.table function out to write this data set to a file in the user's working directory: "tidyData.txt".
-
-For full testing of the assignment, once you've run the run_analysis.R script, you can read the tidyData.txt back into R using a command like this:
-
-read.table("tidyData.txt", header = TRUE, check.names=FALSE)
-
-e.g. yippy <- read.table("tidyData.txt", header = TRUE, check.names=FALSE)
-
-The header=TRUE will tell R to use the first row as a header row, and check.names=FALSE preserves the funky formatting from the original data set in the measurement column headers (which contain () and other characters that the default of check.names=TRUE will change to ".").
